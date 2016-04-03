@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import view.reusable.tab.classifyPoints.graph.GraphView?>
+<?import javafx.scene.control.Button?>
+<fx:root type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <GraphView fx:id="graph"/>
+    <VBox>
+        <children>
+            <Label text="Data (points)">
+                <VBox.margin>
+                    <Insets bottom="5.0" left="10.0" top="15.0" />
+                </VBox.margin>
+            </Label>
+            <GridPane fx:id="dataWrapper" hgap="10" vgap="10"/>
+
+            <Label text="Factors (w1, w2)">
+                <VBox.margin>
+                    <Insets bottom="5.0" left="10.0" top="15.0" />
+                </VBox.margin>
+            </Label>
+            <GridPane fx:id="factorsWrapper" hgap="10" vgap="10"/>
+
+            <Button onAction="#learn" text="Force neuron to learn">
+                <HBox.margin>
+                    <Insets right="10.0" top="10.0" />
+                </HBox.margin>
+            </Button>
+        </children>
+    </VBox>
+</fx:root>
