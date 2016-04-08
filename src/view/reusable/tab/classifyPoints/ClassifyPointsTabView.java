@@ -85,7 +85,7 @@ public class ClassifyPointsTabView extends HBox implements Initializable {
     private void initializeNeuron() {
         this.neuron = new Neuron(DefaultData.DATA_IN, DefaultData.RESULTS);
         this.neuron.learn();
-        this.neuron.compareFinalResults();
+        this.neuron.denormalize();
     }
 
     private void drawAll() {

@@ -56,8 +56,8 @@ public class GraphView extends HBox implements Initializable {
     }
 
     private void setAxes() {
-        xAxis = new NumberAxis(-8, 8, 1);
-        yAxis = new NumberAxis(-25, 25, 1);
+        xAxis = new NumberAxis(-21, 21, 1);
+        yAxis = new NumberAxis(-21, 21, 1);
         xAxis.setLabel("X");
         yAxis.setLabel("Y");
     }

@@ -92,7 +92,7 @@ public class SolveEquationsTabView extends VBox implements Initializable {
     private void initializeNeuron(List<List<Double>> data, List<Double> results) {
         this.neuron = new Neuron(data, results);
         this.neuron.learn();
-        this.neuron.compareFinalResults();
+        this.neuron.denormalize();
     }
 
     private void drawEquation() {

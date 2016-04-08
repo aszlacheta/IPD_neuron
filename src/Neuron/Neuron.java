@@ -7,18 +7,6 @@ import java.util.*;
  */
 public class Neuron {
 
-    public List<List<Double>> getData() {
-        return data;
-    }
-
-    public List<Double> getFactors() {
-        return factors;
-    }
-
-    public List<Double> getResults() {
-        return results;
-    }
-
     List<List<Double>> data;
     List<Double> factors = new ArrayList<>();
     List<Double> results;
@@ -52,7 +40,7 @@ public class Neuron {
         }
     }
 
-    private void denormalize() {
+    public void denormalize() {
         for (int i = 0; i < data.size(); i++) {
             for (int j = 0; j < data.get(i).size(); j++) {
                 double value = data.get(i).get(j) * maxDataSetValue;
@@ -84,9 +72,19 @@ public class Neuron {
                 }
             }
             iteration++;
-        } while (maxError >= ACCEPTABLE_ERROR_VALUE && iteration < 10000);
+        } while (maxError >= ACCEPTABLE_ERROR_VALUE && iteration < 100000);
     }
 
+    private void updateFactors(double deltaValue, int row) {
+        for (int i = 0; i < factors.size(); i++) {
+            double value = factors.get(i) + (TEACHING_FACTOR * deltaValue * this.data.get(row).get(i));
+            factors.set(i, value);
+        }
+    }
+
+    private double getDeltaValue(int row) {
+        return (this.getRealValue(row) - this.getOutputValue(row));
+    }
 
     private double getOutputValue(int row) {
         double sum = 0.0;
@@ -107,31 +105,6 @@ public class Neuron {
         return this.results.get(row);
     }
 
-    private double getDeltaValue(int row) {
-        return (this.getRealValue(row) - this.getOutputValue(row));
-    }
-
-    private void updateFactors(double deltaValue, int row) {
-        for (int i = 0; i < factors.size(); i++) {
-            double value = factors.get(i) + (TEACHING_FACTOR * deltaValue * this.data.get(row).get(i));
-            factors.set(i, value);
-        }
-    }
-
-    public boolean compareFinalResults() {
-        double result = 0.0;
-        this.denormalize();
-        boolean currentStateOfComparison = true;
-        for (int i = 0; i < data.size(); i++) {
-            for (int j = 0; j < data.get(i).size(); j++) {
-                result += factors.get(j) * data.get(i).get(j);
-            }
-            currentStateOfComparison &= (Math.abs(result - this.results.get(i)) <= ACCEPTABLE_ERROR_VALUE);
-            result = 0.0;
-        }
-        return currentStateOfComparison;
-    }
-
     public List<Double> getCalculatedEquationValues() {
         List<Double> list = new ArrayList<>();
         for (int i = 0; i < data.size(); i++) {
@@ -142,6 +115,18 @@ public class Neuron {
             list.add(result);
         }
         return list;
+    }
+
+    public List<List<Double>> getData() {
+        return data;
+    }
+
+    public List<Double> getFactors() {
+        return factors;
+    }
+
+    public List<Double> getResults() {
+        return results;
     }
 
 }
