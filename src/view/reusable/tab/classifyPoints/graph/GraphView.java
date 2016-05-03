@@ -1,6 +1,6 @@
 package view.reusable.tab.classifyPoints.graph;
 
-import Neuron.Neuron;
+import neuron.Neuron;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.NumberAxis;

@@ -32,8 +32,8 @@
 
 package view.reusable.tab.solveEquations;
 
-import Neuron.DefaultData;
-import Neuron.Neuron;
+import neuron.DefaultData;
+import neuron.Neuron;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -91,7 +91,7 @@ public class SolveEquationsTabView extends VBox implements Initializable {
 
     private void initializeNeuron(List<List<Double>> data, List<Double> results) {
         this.neuron = new Neuron(data, results);
-        this.neuron.learn();
+        this.neuron.learnWithDelta();
         this.neuron.denormalize();
     }
 

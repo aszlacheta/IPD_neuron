@@ -1,10 +1,7 @@
-package Neuron;
+package neuron;
 
 import java.util.*;
 
-/**
- * Created by Aleksandra on 2016-03-20.
- */
 public class Neuron {
 
     List<List<Double>> data;
@@ -20,6 +17,11 @@ public class Neuron {
         this.results = results;
         this.generateFactors();
         normalize();
+    }
+
+    public Neuron(List<Double> data, List<Double> factors, List<Double> results) {
+        this.factors = factors;
+        this.data = new LinkedList<List<Double>>() {{this.push(data);}};
     }
 
     private void normalize() {
@@ -58,7 +60,7 @@ public class Neuron {
         }
     }
 
-    public void learn() {
+    public void learnWithDelta() {
         double maxError;
         int iteration = 0;
         do {
@@ -73,6 +75,11 @@ public class Neuron {
             }
             iteration++;
         } while (maxError >= ACCEPTABLE_ERROR_VALUE && iteration < 100000);
+    }
+
+
+    public double activate(){
+       return this.getOutputValue(0);
     }
 
     private void updateFactors(double deltaValue, int row) {
@@ -96,8 +103,12 @@ public class Neuron {
         }
 
         // linear function
-//        sum = sum;
+        sum = this.linearActivationFunction(sum);
 
+        return sum;
+    }
+
+    private double linearActivationFunction(double sum) {
         return sum;
     }
 

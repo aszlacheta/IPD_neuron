@@ -4,16 +4,22 @@
 <?import view.reusable.tab.classifyPoints.ClassifyPointsTabView?>
 <?import view.reusable.tab.solveEquations.SolveEquationsTabView?>
 
+<?import view.reusable.tab.recognizeLetter.RecognizeLetterTabView?>
 <TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
          prefHeight="400.0" prefWidth="750.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8"
          xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.main.MainController">
     <tabs>
-        <Tab text="Classify points within a graph">
+        <Tab text="ZAD1: Recognize a letter">
+            <content>
+                <RecognizeLetterTabView fx:id="recognizeLetter"/>
+            </content>
+        </Tab>
+        <Tab text="ZAD0: Classify points within a graph">
             <content>
                 <ClassifyPointsTabView fx:id="classifyPoints"/>
             </content>
         </Tab>
-        <Tab text="Solve equations">
+        <Tab text="ZAD0: Solve equations">
             <content>
                 <SolveEquationsTabView fx:id="solveEquations"/>
             </content>

@@ -32,8 +32,8 @@
 
 package view.reusable.tab.classifyPoints;
 
-import Neuron.DefaultData;
-import Neuron.Neuron;
+import neuron.DefaultData;
+import neuron.Neuron;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -84,7 +84,7 @@ public class ClassifyPointsTabView extends HBox implements Initializable {
 
     private void initializeNeuron() {
         this.neuron = new Neuron(DefaultData.DATA_IN, DefaultData.RESULTS);
-        this.neuron.learn();
+        this.neuron.learnWithDelta();
         this.neuron.denormalize();
     }
 

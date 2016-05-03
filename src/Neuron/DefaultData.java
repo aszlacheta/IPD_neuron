@@ -1,15 +1,17 @@
-package Neuron;
+package neuron;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Aleksandra on 2016-03-20.
- */
 public class DefaultData {
 
     public final static DecimalFormat DECIMAL = new DecimalFormat("#.####");
+    public final static String letterToRecognizePath = "\\src\\letter\\toBeTrainedOn\\A.txt";
+    public static final String LETTER_CHARACTER = "#";
+
+
+
 
     public static final List<List<Double>> DATA_IN = new ArrayList<List<Double>>() {{
         add(new ArrayList<Double>() {{
